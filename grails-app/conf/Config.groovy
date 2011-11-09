@@ -96,3 +96,8 @@ grails.gorm.failOnError = true
 grails.gorm.default.mapping = {
    id generator:'identity'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'general.Persona'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'general.PersonaRol'
+grails.plugins.springsecurity.authority.className = 'general.Rol'
