@@ -87,4 +87,12 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    debug  'grails.app'//,'org.hibernate'//,'test.integration'
+}
+
+grails.gorm.failOnError = true
+
+grails.gorm.default.mapping = {
+   id generator:'identity'
 }
