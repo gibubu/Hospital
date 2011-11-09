@@ -101,3 +101,9 @@ grails.gorm.default.mapping = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'general.Persona'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'general.PersonaRol'
 grails.plugins.springsecurity.authority.className = 'general.Rol'
+grails.plugins.springsecurity.roleHierarchy = '''
+   ROLE_ADMINISTRADOR > ROLE_DOCTOR
+   ROLE_DOCTOR > ROLE_ASISTENTE
+   ROLE_ASISTENTE > ROLE_PACIENTE
+   ROLE_ORG > ROLE_DIRFIN
+'''

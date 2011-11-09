@@ -11,6 +11,13 @@ class Persona {
 	boolean accountLocked
 	boolean passwordExpired
 
+        String nombre
+        String apellidoPaterno
+        String apellidoMaterno
+        String direccion
+        String telefono
+        String email
+
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
