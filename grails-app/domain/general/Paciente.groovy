@@ -1,6 +1,6 @@
 package general
 
-class Paciente {
+class Paciente extends Persona{
 
     static constraints = {
     }
