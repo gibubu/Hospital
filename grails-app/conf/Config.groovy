@@ -91,12 +91,6 @@ log4j = {
     debug  'grails.app'//,'org.hibernate'//,'test.integration'
 }
 
-<<<<<<< HEAD
-// Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'general.Usuario'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'general.UsuarioRol'
-grails.plugins.springsecurity.authority.className = 'general.Rol'
-=======
 grails.gorm.failOnError = true
 
 grails.gorm.default.mapping = {
@@ -113,4 +107,3 @@ grails.plugins.springsecurity.roleHierarchy = '''
    ROLE_ASISTENTE > ROLE_PACIENTE
    ROLE_ORG > ROLE_DIRFIN
 '''
->>>>>>> 1421f41aff111a490f34dbf5d3fd5acf40957815
