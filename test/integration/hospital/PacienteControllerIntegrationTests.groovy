@@ -20,7 +20,7 @@ class PacienteControllerIntegrationTests extends BaseIntegrationTest{
     }
 
 @Test
-    void debieraDarDeAltaUnPaciente() {
+    void debieraDarDeAltaUnPacienteByDoctor() {
         println "debieraDarDeAltaUnPaciente"
 
         def authenticate = authenticateDoctor()
@@ -39,6 +39,102 @@ class PacienteControllerIntegrationTests extends BaseIntegrationTest{
         }
 
         assert isDoctor
+
+        def controller = new PacienteController()
+        assert controller
+
+        def model = controller.create()
+        assert model
+        assert model.pacienteInstance
+
+        controller.params.username = 'paciente'
+        controller.params.password = 'paciente'
+        controller.params.enabled = true
+        controller.params.accountExpired = false
+        controller.params.accountLocked = false
+        controller.params.passwordExpired = false
+
+        controller.params.nombre = 'TEST'
+        controller.params.apellidoPaterno = 'TEST'
+        controller.params.apellidoMaterno = 'TEST'
+        controller.params.direccion = 'TEST'
+        controller.params.telefono = 'TEST'
+        controller.params.email = 'TEST'
+        controller.save()
+
+        assert controller.response.redirectedUrl.startsWith('/paciente/show')
+
+        assert Persona.findByUsername('paciente')
+    }
+
+    @Test
+    void debieraDarDeAltaUnPacienteByAsistente() {
+        println "debieraDarDeAltaUnPacienteByAsistente"
+
+        def authenticate = authenticateAsistente()
+        println "authenticate: ${authenticate.getProperties()}"
+
+        def principal = authenticate.principal
+
+        Set<Rol> authorities = principal.getAuthorities()
+
+        boolean isAsistente = false
+        for(auth in authorities){
+            println "authority: ${auth.authority}"
+            if(auth.authority.equals("ROLE_ASISTENTE")){
+                isAsistente = true
+            }
+        }
+
+        assert isAsistente
+
+        def controller = new PacienteController()
+        assert controller
+
+        def model = controller.create()
+        assert model
+        assert model.pacienteInstance
+
+        controller.params.username = 'paciente'
+        controller.params.password = 'paciente'
+        controller.params.enabled = true
+        controller.params.accountExpired = false
+        controller.params.accountLocked = false
+        controller.params.passwordExpired = false
+
+        controller.params.nombre = 'TEST'
+        controller.params.apellidoPaterno = 'TEST'
+        controller.params.apellidoMaterno = 'TEST'
+        controller.params.direccion = 'TEST'
+        controller.params.telefono = 'TEST'
+        controller.params.email = 'TEST'
+        controller.save()
+
+        assert controller.response.redirectedUrl.startsWith('/paciente/show')
+
+        assert Persona.findByUsername('paciente')
+    }
+
+    @Test
+    void debieraDarDeAltaUnPacienteByPaciente() {
+        println "debieraDarDeAltaUnPacienteByPaciente"
+
+//        def authenticate = authenticateDoctor()
+//        println "authenticate: ${authenticate.getProperties()}"
+
+//        def principal = authenticate.principal
+//
+//        Set<Rol> authorities = principal.getAuthorities()
+//
+//        boolean isDoctor = false
+//        for(auth in authorities){
+//            println "authority: ${auth.authority}"
+//            if(auth.authority.equals("ROLE_DOCTOR")){
+//                isDoctor = true
+//            }
+//        }
+//
+//        assert isDoctor
 
         def controller = new PacienteController()
         assert controller

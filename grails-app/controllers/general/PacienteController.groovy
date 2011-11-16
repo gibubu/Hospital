@@ -19,7 +19,7 @@ class PacienteController {
         [pacienteInstanceList: Paciente.list(params), pacienteInstanceTotal: Paciente.count()]
     }
 
-    @Secured(['ROLE_ADMINISTRADOR','ROLE_DOCTOR'])
+    @Secured(['ROLE_ADMINISTRADOR','ROLE_DOCTOR',"ROLE_ASISTENTE"])
     def create() {
         [pacienteInstance: new Paciente(params)]
     }
