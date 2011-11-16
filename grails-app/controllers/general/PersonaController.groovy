@@ -4,7 +4,7 @@ import grails.plugins.springsecurity.Secured
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.springframework.dao.DataIntegrityViolationException
 
-@Secured(['ROLE_ADMINISTRADOR','ROLE_DOCTOR','ROLE_ASISTENTE','ROLE_PACIENTE'])
+@Secured(['ROLE_ADMINISTRADOR'])
 class PersonaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

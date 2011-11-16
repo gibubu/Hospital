@@ -16,8 +16,20 @@
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 		<g:layoutHead/>
 	</head>
-	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+        <body>
+          <div id="grailsLogo" role="banner">
+<!--                  <a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>-->
+            <div id="logo">
+              <a href="${createLink(uri: '/')}" style="text-decoration:none;font-size:2em;letter-spacing:2px;">El chatarrero</a>
+            </div>
+
+            <div class="encabezado" align="left">
+              <sec:ifLoggedIn>
+                <a href="${createLink(controller:'usuario',action:'perfil')}"><g:message code="welcome.header.message" /> <sec:username /></a>
+                <a href="${createLink(controller:'logout')}"><g:message code="logout.header.message" /></a>
+              </sec:ifLoggedIn>
+            </div>
+          </div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
