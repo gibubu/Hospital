@@ -35,6 +35,8 @@ class BootStrap {
                 direccion: 'Dormi 3',
                 telefono : '8261130554',
                 email : 'cuentasvarias@hotmail.com',
+                sexo: 'M',
+                edad: new Date(),
                 username:'admin',
                 password : 'admin',
                 enabled : true

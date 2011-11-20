@@ -41,6 +41,78 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${pacienteInstance?.nombre}">
+				<li class="fieldcontain">
+					<span id="nombre-label" class="property-label"><g:message code="paciente.nombre.label" default="Nombre" /></span>
+					
+						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${pacienteInstance}" field="nombre"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.apellidoPaterno}">
+				<li class="fieldcontain">
+					<span id="apellidoPaterno-label" class="property-label"><g:message code="paciente.apellidoPaterno.label" default="Apellido Paterno" /></span>
+					
+						<span class="property-value" aria-labelledby="apellidoPaterno-label"><g:fieldValue bean="${pacienteInstance}" field="apellidoPaterno"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.apellidoMaterno}">
+				<li class="fieldcontain">
+					<span id="apellidoMaterno-label" class="property-label"><g:message code="paciente.apellidoMaterno.label" default="Apellido Materno" /></span>
+					
+						<span class="property-value" aria-labelledby="apellidoMaterno-label"><g:fieldValue bean="${pacienteInstance}" field="apellidoMaterno"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.direccion}">
+				<li class="fieldcontain">
+					<span id="direccion-label" class="property-label"><g:message code="paciente.direccion.label" default="Direccion" /></span>
+					
+						<span class="property-value" aria-labelledby="direccion-label"><g:fieldValue bean="${pacienteInstance}" field="direccion"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.telefono}">
+				<li class="fieldcontain">
+					<span id="telefono-label" class="property-label"><g:message code="paciente.telefono.label" default="Telefono" /></span>
+					
+						<span class="property-value" aria-labelledby="telefono-label"><g:fieldValue bean="${pacienteInstance}" field="telefono"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.edad}">
+				<li class="fieldcontain">
+					<span id="edad-label" class="property-label"><g:message code="paciente.edad.label" default="Edad" /></span>
+					
+						<span class="property-value" aria-labelledby="edad-label"><g:formatDate date="${pacienteInstance?.edad}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.sexo}">
+				<li class="fieldcontain">
+					<span id="sexo-label" class="property-label"><g:message code="paciente.sexo.label" default="Sexo" /></span>
+					
+						<span class="property-value" aria-labelledby="sexo-label"><g:fieldValue bean="${pacienteInstance}" field="sexo"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${pacienteInstance?.email}">
+				<li class="fieldcontain">
+					<span id="email-label" class="property-label"><g:message code="paciente.email.label" default="Email" /></span>
+					
+						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${pacienteInstance}" field="email"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${pacienteInstance?.accountExpired}">
 				<li class="fieldcontain">
 					<span id="accountExpired-label" class="property-label"><g:message code="paciente.accountExpired.label" default="Account Expired" /></span>
@@ -59,38 +131,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${pacienteInstance?.apellidoMaterno}">
+				<g:if test="${pacienteInstance?.cita}">
 				<li class="fieldcontain">
-					<span id="apellidoMaterno-label" class="property-label"><g:message code="paciente.apellidoMaterno.label" default="Apellido Materno" /></span>
+					<span id="cita-label" class="property-label"><g:message code="paciente.cita.label" default="Cita" /></span>
 					
-						<span class="property-value" aria-labelledby="apellidoMaterno-label"><g:fieldValue bean="${pacienteInstance}" field="apellidoMaterno"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${pacienteInstance?.apellidoPaterno}">
-				<li class="fieldcontain">
-					<span id="apellidoPaterno-label" class="property-label"><g:message code="paciente.apellidoPaterno.label" default="Apellido Paterno" /></span>
-					
-						<span class="property-value" aria-labelledby="apellidoPaterno-label"><g:fieldValue bean="${pacienteInstance}" field="apellidoPaterno"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${pacienteInstance?.direccion}">
-				<li class="fieldcontain">
-					<span id="direccion-label" class="property-label"><g:message code="paciente.direccion.label" default="Direccion" /></span>
-					
-						<span class="property-value" aria-labelledby="direccion-label"><g:fieldValue bean="${pacienteInstance}" field="direccion"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${pacienteInstance?.email}">
-				<li class="fieldcontain">
-					<span id="email-label" class="property-label"><g:message code="paciente.email.label" default="Email" /></span>
-					
-						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${pacienteInstance}" field="email"/></span>
+						<g:each in="${pacienteInstance.cita}" var="c">
+						<span class="property-value" aria-labelledby="cita-label"><g:link controller="cita" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -104,11 +151,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${pacienteInstance?.nombre}">
+				<g:if test="${pacienteInstance?.historialClinico}">
 				<li class="fieldcontain">
-					<span id="nombre-label" class="property-label"><g:message code="paciente.nombre.label" default="Nombre" /></span>
+					<span id="historialClinico-label" class="property-label"><g:message code="paciente.historialClinico.label" default="Historial Clinico" /></span>
 					
-						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${pacienteInstance}" field="nombre"/></span>
+						<g:each in="${pacienteInstance.historialClinico}" var="h">
+						<span class="property-value" aria-labelledby="historialClinico-label"><g:link controller="historialClinico" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -122,11 +171,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${pacienteInstance?.telefono}">
+				<g:if test="${pacienteInstance?.receta}">
 				<li class="fieldcontain">
-					<span id="telefono-label" class="property-label"><g:message code="paciente.telefono.label" default="Telefono" /></span>
+					<span id="receta-label" class="property-label"><g:message code="paciente.receta.label" default="Receta" /></span>
 					
-						<span class="property-value" aria-labelledby="telefono-label"><g:fieldValue bean="${pacienteInstance}" field="telefono"/></span>
+						<g:each in="${pacienteInstance.receta}" var="r">
+						<span class="property-value" aria-labelledby="receta-label"><g:link controller="receta" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

@@ -1,10 +1,7 @@
 package general
 
-import grails.plugins.springsecurity.Secured
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.springframework.dao.DataIntegrityViolationException
 
-@Secured(['ROLE_ADMINISTRADOR','ROLE_DOCTOR'])
 class DoctorController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -18,25 +15,15 @@ class DoctorController {
         [doctorInstanceList: Doctor.list(params), doctorInstanceTotal: Doctor.count()]
     }
 
-    @Secured(['ROLE_ADMINISTRADOR'])
     def create() {
         [doctorInstance: new Doctor(params)]
     }
 
-    @Secured(['ROLE_ADMINISTRADOR'])
     def save() {
         def doctorInstance = new Doctor(params)
-
         if (!doctorInstance.save(flush: true)) {
             render(view: "create", model: [doctorInstance: doctorInstance])
             return
-        }
-
-        //Agregando rol vendedor al usuario
-        def rolDoctor = Rol.findByAuthority('ROLE_DOCTOR')
-        if (!doctorInstance.authorities.contains(rolDoctor)){
-            log.debug "Poniendole ROLE_DOCTOR al usuario: ${doctorInstance}"
-            PersonaRol.create(doctorInstance, rolDoctor)
         }
 
 		flash.message = message(code: 'default.created.message', args: [message(code: 'doctor.label', default: 'Doctor'), doctorInstance.id])

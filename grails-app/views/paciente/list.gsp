@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="password" title="${message(code: 'paciente.password.label', default: 'Password')}" />
 					
-						<g:sortableColumn property="accountExpired" title="${message(code: 'paciente.accountExpired.label', default: 'Account Expired')}" />
+						<g:sortableColumn property="nombre" title="${message(code: 'paciente.nombre.label', default: 'Nombre')}" />
 					
-						<g:sortableColumn property="accountLocked" title="${message(code: 'paciente.accountLocked.label', default: 'Account Locked')}" />
+						<g:sortableColumn property="apellidoPaterno" title="${message(code: 'paciente.apellidoPaterno.label', default: 'Apellido Paterno')}" />
 					
 						<g:sortableColumn property="apellidoMaterno" title="${message(code: 'paciente.apellidoMaterno.label', default: 'Apellido Materno')}" />
 					
-						<g:sortableColumn property="apellidoPaterno" title="${message(code: 'paciente.apellidoPaterno.label', default: 'Apellido Paterno')}" />
+						<g:sortableColumn property="direccion" title="${message(code: 'paciente.direccion.label', default: 'Direccion')}" />
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: pacienteInstance, field: "password")}</td>
 					
-						<td><g:formatBoolean boolean="${pacienteInstance.accountExpired}" /></td>
+						<td>${fieldValue(bean: pacienteInstance, field: "nombre")}</td>
 					
-						<td><g:formatBoolean boolean="${pacienteInstance.accountLocked}" /></td>
+						<td>${fieldValue(bean: pacienteInstance, field: "apellidoPaterno")}</td>
 					
 						<td>${fieldValue(bean: pacienteInstance, field: "apellidoMaterno")}</td>
 					
-						<td>${fieldValue(bean: pacienteInstance, field: "apellidoPaterno")}</td>
+						<td>${fieldValue(bean: pacienteInstance, field: "direccion")}</td>
 					
 					</tr>
 				</g:each>
