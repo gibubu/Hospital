@@ -6,4 +6,8 @@ class Paciente extends Persona{
 
     static constraints = {
     }
+
+    String toString() {
+        return "Paciente: $paciente"
+    }
 }

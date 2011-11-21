@@ -1,12 +1,14 @@
 package general
 
 class Doctor extends Persona{
+    Asistente asistente
 
-    String especialidades
-
-    static hasMany = [cita:Cita, receta:Receta, historialClinico:HistorialClinico]
+    static hasMany = [cita:Cita, receta:Receta, historialClinico:HistorialClinico, especialidad:Especialidad]
     
     static constraints = {
-        especialidades blank:false, maxSize: 200
+    }
+
+    String toString() {
+        return "Doctor: $doctor"
     }
 }
