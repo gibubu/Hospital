@@ -1,0 +1,6 @@
+#form1 {padding:0 16px 0 0}
+#form1 input.floatl, #form1 textarea {width:257px;height:15px;border:#929292 solid 1px;margin:0 0 9px 0px;padding:0 0 0 4px}
+#form1 textarea {height:63px}
+#form1 input.floatr {float: center; width:400px;height:16px;border:none;cursor:pointer;margin:0 0 0 50px}
+.res {background:url(../images/contacts/contacts6.gif) no-repeat}
+.sub {background:url(../images/contacts/contacts7.gif) no-repeat}

@@ -23,12 +23,12 @@
 			<table>
 				<thead>
 					<tr>
-					
+                                
 						<g:sortableColumn property="nombre" title="${message(code: 'especialidad.nombre.label', default: 'Nombre')}" />
 					
 						<th><g:message code="especialidad.doctor.label" default="Doctor" /></th>
-					
 					</tr>
+                                        
 				</thead>
 				<tbody>
 				<g:each in="${especialidadInstanceList}" status="i" var="especialidadInstance">
